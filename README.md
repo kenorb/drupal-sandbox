@@ -15,3 +15,5 @@ and follow the instructions.
 Otherwise if you prefer to use VM, use [Vagrant](http://www.vagrantup.com/downloads):
 
     vagrant up
+
+and follow the instructions.
