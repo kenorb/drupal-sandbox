@@ -1,4 +1,8 @@
 {
+    "config": {
+        "vendor-dir": "/var/lib/vendor",
+        "bin-dir": "/usr/local/bin"
+    },
     "require": {
         "drush/drush": "dev-master"
     }
