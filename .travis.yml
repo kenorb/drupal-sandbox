@@ -25,6 +25,7 @@ before_script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
   - set -e # This makes build to fail on first error.
+  - composer -nqq update
   - make
   - make vm
 
@@ -42,9 +43,11 @@ after_failure:
 after_script:
   - pwd
 
+# Customize when the notification emails are sent.
 notifications:
-  email: false
+  on_success: never
+  on_failure: always
 
 language: php
 python:
-  - "5.3"
+  - "5.5"
