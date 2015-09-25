@@ -15,8 +15,7 @@ sudo ex +"%s@DPkg@//DPkg" -cwq /etc/apt/apt.conf.d/70debconf
 sudo dpkg-reconfigure debconf -f noninteractive -p critical
 
 # Append settings into ~/.bashrc and reload.
-ex +'$s@$@\rexport PATH=\~/.composer/vendor/bin:$PATH@' -cwq /etc/bash.bashrc # ~root/.bashrc
-source ~/.bashrc
+ex +'$s@$@\rexport PATH=/var/lib/vendor/bin:$PATH@' -cwq /etc/bash.bashrc
 
 # Give vagrant write permission for /opt.
 sudo chown vagrant:vagrant /opt
@@ -39,9 +38,7 @@ sudo apt-get -qy install sqlite3 php5-sqlite
 
 # Install composer (https://getcomposer.org/) via PHP.
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-sudo -u vagrant composer -nqq global update
-ln -vs /vagrant/composer.json ~vagrant/.composer/
-sudo -u vagrant composer -nqq global update
+composer -nqq update
 
 # Add version control for /opt to track the changes.
 git init /opt
